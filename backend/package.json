@@ -4,8 +4,8 @@
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "dev": "node src/server.js",
-    "start": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "express": "^5.1.0",
     "inngest": "^3.44.3",
     "mongoose": "^8.20.1",
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "video-calling-interview-platform": "file:.."
   }
 }
