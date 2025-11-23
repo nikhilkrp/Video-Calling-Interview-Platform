@@ -1,6 +1,7 @@
 import {Inngest } from "inngest"
 import connectDB from "./db.js"
 import User from "../models/User.js"
+import { upsertStreamUser , deleteStreamUser } from "./stream.js"
 
 export const inngest = new Inngest({ id: "interview" });
 
@@ -23,6 +24,7 @@ const syncUser = inngest.createFunction(
             name:newUser.name,
             image:newUser.profileImage,
         })
+        // send welcome email can be sent here too
     }
 )
 
