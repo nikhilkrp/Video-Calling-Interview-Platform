@@ -34,7 +34,7 @@ app.get('/books', (req, res) => {
 
 
 if (ENV.NODE_ENV === 'production') {
-    const frontendPath = path.join(__dirname, '../frontend/dist');
+    const frontendPath = path.join(__dirname, '../../frontend/dist');
 
     app.use(express.static(frontendPath));
 
