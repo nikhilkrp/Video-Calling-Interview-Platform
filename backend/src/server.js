@@ -13,7 +13,7 @@ import { fileURLToPath } from "url";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve();
+const __dirname = path.dirname(__filename);
 
 
 app.use(express.json());
