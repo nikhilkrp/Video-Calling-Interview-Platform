@@ -6,6 +6,8 @@ import { functions, inngest } from './lib/inngest.js';
 import path from 'path';
 import { serve } from "inngest/express"; 
 import { fileURLToPath } from "url";
+import chatRoutes from './routes/chatRoutes.js';
+import {clerkMiddleware} from '@clerk/express';
 
 
 
@@ -18,18 +20,18 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 app.use(cors({origin:ENV.CLIENT_URL,credentials:true}))
+app.use(clerkMiddleware());
 
 
 
 app.use('/api/inngest',serve({client:inngest,functions}))
+app.use('/api/chat',chatRoutes);
 
 app.get('/health', (req, res) => {
     res.send('Server api is up and running');
 })
 
-app.get('/books', (req, res) => {
-    res.send('Books api is up and running');
-})
+
 
 
 
