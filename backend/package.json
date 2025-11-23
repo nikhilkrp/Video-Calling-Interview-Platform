@@ -18,6 +18,7 @@
     "inngest": "^3.44.3",
     "mongoose": "^8.20.1",
     "nodemon": "^3.1.11",
+    "stream-chat": "^9.24.0",
     "video-calling-interview-platform": "file:.."
   }
 }
