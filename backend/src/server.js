@@ -8,6 +8,7 @@ import { serve } from "inngest/express";
 import { fileURLToPath } from "url";
 import chatRoutes from './routes/chatRoutes.js';
 import {clerkMiddleware} from '@clerk/express';
+import sessionRoutes from './routes/sessionRoutes.js';
 
 
 
@@ -26,6 +27,7 @@ app.use(clerkMiddleware());
 
 app.use('/api/inngest',serve({client:inngest,functions}))
 app.use('/api/chat',chatRoutes);
+app.use('/api/session',sessionRoutes)
 
 app.get('/health', (req, res) => {
     res.send('Server api is up and running');
