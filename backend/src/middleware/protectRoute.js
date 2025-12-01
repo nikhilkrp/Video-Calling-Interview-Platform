@@ -1,4 +1,4 @@
-import {clerkClient, requireAuth, getAuth, User} from '@clerk/express';
+import {clerkClient, requireAuth, getAuth} from '@clerk/express';
 
 export const protectRoute = [
     requireAuth(),
