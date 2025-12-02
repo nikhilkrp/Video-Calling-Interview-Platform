@@ -1,3 +1,5 @@
+import themes from 'daisyui/theme/object';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -9,6 +11,11 @@ export default {
   },
   plugins: [
     require("daisyui"),
+    
   ],
+  daisyui:{
+    themes:true,
+  }
+
 }
 
