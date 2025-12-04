@@ -19,6 +19,7 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
       if (!session?.callId) return;
       if (!isHost && !isParticipant) return;
       if (session.status === "completed") return;
+      
 
       try {
         const { token, userId, userName, userImage } = await sessionApi.getStreamToken();
@@ -33,6 +34,10 @@ function useStreamClient(session, loadingSession, isHost, isParticipant) {
         );
 
         setStreamClient(client);
+
+
+        // console.log("VIDEO CLIENT USER:", client.user);
+        // console.log("TOKEN:", token);
 
         videoCall = client.call("default", session.callId);
         await videoCall.join({ create: true });
