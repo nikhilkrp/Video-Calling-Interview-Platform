@@ -12,7 +12,7 @@ export async function createSession(req, res) {
         }
 
         //  genrate a unique call id fro stream video
-        const callId = `session-${Date.now()}-${Math.random().toString(36).substr(7)}`;
+        const callId = `session_${Date.now()}_${Math.random().toString(36).substring(7)}`;
 
         //  create session in db
         const session = await Session.create({ problem, difficulty, host: userId, callId })
@@ -97,7 +97,6 @@ export async function getSessionById(req, res) {
 export async function joinSession(req, res) {
     try {
         const { id } = req.params;
-
         const userId = req.user._id
         const clerkId = req.user.clerkId
 
@@ -136,15 +135,21 @@ export async function endSession(req, res) {
         return res.status(403).json({message:"Only host can end the session"})
        }
 
-       session.status="completed";
-       await session.save();
+           // check if session is already completed
+    if (session.status === "completed") {
+      return res.status(400).json({ message: "Session is already completed" });
+    }
+
 
     // delete stream video room and chat channel 
     const call = streamClient.video.call("default", session.callId);
-        await call.delete();
+        await call.delete({ hard: true });
 
       const channel = chatClient.channel("messaging", session.callId);
       await channel.delete();
+
+       session.status="completed";
+       await session.save();
 
 
        res.status(200).json({message:"Session ended successfully", session});

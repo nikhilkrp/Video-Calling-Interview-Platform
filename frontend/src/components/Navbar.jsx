@@ -7,7 +7,7 @@ function Navbar() {
   const location = useLocation();
 
 
-  console.log(location);
+  // console.log(location);
 
   const isActive = (path) => location.pathname === path;
 
