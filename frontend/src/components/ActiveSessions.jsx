@@ -8,12 +8,12 @@ import {
   ZapIcon,
   LoaderIcon,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { getDifficultyBadgeClass } from "../lib/utils";
 
 const ActiveSessions = ({ sessions, isLoading, isUserInSession }) => {
   return (
-   <div className="lg:col-span-2 card bg-base-100 border-2 border-primary/20 hover:border-primary/30 h-full">
+    <div className="lg:col-span-2 card bg-base-100 border-2 border-primary/20 hover:border-primary/30 h-full">
       <div className="card-body">
         {/* HEADERS SECTION */}
         <div className="flex items-center justify-between mb-6">
@@ -27,8 +27,7 @@ const ActiveSessions = ({ sessions, isLoading, isUserInSession }) => {
 
           <div className="flex items-center gap-2">
             <div className="size-2 bg-success rounded-full" />
-            <span className="text-sm font-medium text-success">{sessions.length} active</span>
-          </div>
+            <span className="text-sm font-medium text-success">{sessions?.length ?? 0} active</span>          </div>
         </div>
 
         {/* SESSIONS LIST */}

@@ -18,7 +18,7 @@ const RecentSessions = ({sessions , isLoading}) => {
             <div className="col-span-full flex items-center justify-center py-20">
               <Loader className="w-10 h-10 animate-spin text-primary" />
             </div>
-          ) : sessions.length > 0 ? (
+          ) : sessions?.length > 0 ? (
             sessions.map((session) => (
               <div
                 key={session._id}

@@ -10,7 +10,11 @@ export const initializeStreamClient = async (user, token) => {
   if (client && client?.user?.id === user.id) return client;
 
   if (client) {
-    await disconnectStreamClient();
+    try {
+      await disconnectStreamClient();
+    } catch (error) {
+      console.error("Failed to disconnect previous client:", error);
+    }
   }
 
   if (!apiKey) throw new Error("Stream API key is not provided.");
