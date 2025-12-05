@@ -16,11 +16,13 @@ export const useCreateSession = () =>{
 
 export const useMyRecentSessions = () => {
     const result = useQuery({
-        qyeryKey:['myRecentSessions'],
+        queryKey:['myRecentSessions'],
         queryFn:sessionApi.getMyRecentSessions
     });
     return result;
 }
+
+
 
 export const useActiveSessions = () => {
     const result = useQuery({
@@ -33,7 +35,7 @@ export const useActiveSessions = () => {
 
 export const useSessionById = (id) => {
     const result = useQuery({
-        queryKey: ['sessionById', id],
+        queryKey: ['session', id],
         queryFn: () => sessionApi.getSessionById(id),
         enabled: !!id,
         refetchInterval: 5000,

@@ -7,6 +7,7 @@ const apiSecret = ENV.STREAM_API_SECRET
 
 if(!apiKey || !apiSecret){
     console.error("Stream API key or secret is missing.");
+    
 }
 // this is for chat messaging backend operations
 export const chatClient = StreamChat.getInstance(apiKey, apiSecret);
@@ -25,7 +26,7 @@ export const upsertStreamUser = async (userData) => {
 
 export const deleteStreamUser = async (userId) => {
     try {
-        await  chatClient.deleteUser(userId, );
+        await  chatClient.deleteUser(userId);
         console.log("Stream user deleted:", userId);
     } catch (error) {
         console.error("Error deleting Stream user:", error);

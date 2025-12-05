@@ -1,5 +1,5 @@
 import { useUser } from "@clerk/clerk-react";
-import { Navigate, Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import { Toaster } from "react-hot-toast";
 import DashboardPage from "./pages/DashboardPage";
@@ -8,10 +8,15 @@ import ProblemsPage from "./pages/ProblemsPage";
 import SessionPage from "./pages/SessionPage";
 
 function App() {
+
   const { isSignedIn, isLoaded } = useUser();
+  
+  
 
   // this will get rid of the flickering effect
   if (!isLoaded) return null;
+
+
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router-dom";
 import { PROBLEMS } from "../data/problems";
 import Navbar from "../components/Navbar";
 
@@ -78,9 +78,8 @@ function ProblemPage() {
     const normalizedActual = normalizeOutput(actualOutput);
     const normalizedExpected = normalizeOutput(expectedOutput);
 
-    return normalizedActual == normalizedExpected;
+    return normalizedActual === normalizedExpected;
   };
-
   const handleRunCode = async () => {
     setIsRunning(true);
     setOutput(null);

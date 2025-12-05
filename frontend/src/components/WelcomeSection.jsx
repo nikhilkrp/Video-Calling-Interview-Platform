@@ -1,8 +1,7 @@
-import React from 'react'
 import { useUser } from "@clerk/clerk-react";
 import { ArrowRightIcon, SparklesIcon, ZapIcon } from "lucide-react";
 
-const WelcomeSection = ({onCreateSession}) => {
+const WelcomeSection = ({ onCreateSession }) => {
   const { user } = useUser();
   return (
     <div className="relative overflow-hidden">
