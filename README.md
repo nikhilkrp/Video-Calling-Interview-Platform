@@ -1,5 +1,12 @@
 <h1 align="center">✨ Full-Stack Interview Platform ✨</h1>
 
+## 📸 Platform Preview
+
+<p align="center">
+  <img src="./frontend/public/Dashboard.png" alt="Platform Preview" width="850" />
+</p>
+
+
 ✨ Highlights:
 
 - 🧑‍💻 VSCode-Powered Code Editor
